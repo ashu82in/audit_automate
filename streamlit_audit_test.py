@@ -116,7 +116,7 @@ if obs_file is not None:
         st.write(file_found)
         st.write(file_image_dict)
         for temp_file in up_files:
-            # try:
+            try:
                 st.write(temp_file.name)
                 # st.write(file_image_dict[temp_file.name])
                 img_no = file_image_dict[temp_file.name] 
@@ -125,8 +125,8 @@ if obs_file is not None:
                 im = Image.open(temp_file)
                 im.save("images_comp_audit/Image "+str(img_no)+"."+ext, exif=im.info.get("exif"))
                 
-            # except:
-            #     pass
+            except:
+                pass
         zip_path = "images_compressed_audit.zip"
         directory_to_zip = "images_comp_audit"
         folder = pathlib.Path(directory_to_zip)
